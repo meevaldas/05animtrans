@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// COMPONENTS
+import Header from './components/header';
+import CssTr from './components/CSSTransition';
+import Tgroup from './components/Tgroup';
+import TransitionComp from './components/Transition';
+import './style/style.css';
+
+
+const App = () => {
+    return(
+        <BrowserRouter>
+            <Header/>
+            <div className="container">
+                <Switch>
+                    <Route path="/transition" component={TransitionComp}></Route>
+                    <Route path="/csstransition" component={CssTr}></Route>
+                    <Route path="/tgroup" component={Tgroup}></Route>
+                </Switch>
+            </div>
+        </BrowserRouter>
+    )
 }
 
 export default App;
